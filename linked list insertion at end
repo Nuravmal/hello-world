@@ -1,0 +1,41 @@
+#include <iostream>
+using namespace std;
+struct node{
+	int data;
+	node*next;
+};node*head;
+void insert(int n, int pos)
+{
+	node*temp=new node();
+	temp->data=n;
+	temp->next=NULL;
+	if(pos==1)
+	{temp->next=head;
+	head=temp;
+	return;
+		}
+		node*temp1=head;
+		for(int i=0;i<pos-2;i++)
+		{
+			temp1=temp1->next;
+		}
+		temp->next=temp1->next;
+		temp1->next=temp;}
+void print()
+{
+	node*temp1=head;
+	while(temp1!=NULL)
+	{
+		cout<<temp1->data;
+	temp1=temp1->next;
+}
+}
+int main()
+{head=NULL;
+	insert(2,1);
+	insert(5,2);
+	insert(4,1);	
+	insert(5,2);
+	print();
+	}
+	
