@@ -1,0 +1,53 @@
+#include<iostream>
+#include<map>
+
+using namespace std;
+int main()
+{//map declaration
+map<int,int>m1;
+//map intialization
+m1[0]=0;
+m1.insert(pair<int,int>(1,40));
+m1.insert(pair<int,int>(2,30));
+m1.insert(pair<int,int>(3,60));
+m1.insert(pair<int,int>(4,20));
+//print m1
+map<int,int>::iterator it;
+for(it=m1.begin();it!=m1.end();it++)
+{cout<<it->first<<":"<<it->second<<endl;
+}
+//for displaying element individually
+cout<<m1[0]<<endl;
+//assigning element from one map to another
+map<int,int>m2(m1.begin(),m1.end());
+//printing values of m2;
+for(it=m2.begin();it!=m2.end();it++)
+{
+	cout<<it->first<<":"<<it->second<<endl;
+	
+}
+//remove element upto key=3;
+m2.erase(m2.begin(),m2.find(3));
+for(it=m2.begin();it!=m2.end();it++)
+{
+	cout<<it->first<<":"<<it->second<<endl;
+	
+}
+//remove all elements of key=4
+m2.erase(4);
+cout<<endl;
+for(it=m2.begin();it!=m2.end();it++)
+{
+	cout<<it->first<<":"<<it->second<<endl;
+	
+}//map upper lower bound
+m1.upper_bound(3);
+m1.lower_bound(2);
+cout<<endl;
+cout<<endl;
+cout<<endl;
+for(it=m1.begin();it!=m1.end();it++)
+{
+	cout<<it->first<<":"<<it->second<<endl;
+
+}}
