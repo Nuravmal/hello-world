@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+void selectionsort(int a[],int n)
+{int imin=0;
+int temp=0;
+	for(int i=0;i<=n-2;i++)//0 to n-2th element because n-1th will automatically be sorted
+	{
+		imin=i;//holding index no
+		for(int j=i+1;j<=n-1;j++)
+		{
+			if(a[j]<a[imin])
+			{imin=j;//storing min index in imin
+			}
+		}temp=a[i];//swap the elements
+			a[i]=a[imin];
+			a[imin]=temp;			
+	}
+}
+int main()
+{int n;
+cin>>n;//array size
+int a[n];
+	for(int i=0;i<n;i++)
+	{
+		cin>>a[i];
+	}
+	selectionsort(a,n);
+	for(int i=0;i<n;i++)
+	{
+		cout<<a[i];
+	}
+}
