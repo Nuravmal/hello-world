@@ -2,9 +2,9 @@
 #include <bits/stdc++.h >
 using namespace std;
 
-int partition(int *A,int start,int end)
+int partition(int *A,int start,int end) 
 {
-  int pivot=A[end];
+  int pivot=A[end];           
   int pIndex=start;
   for(int i=start;i<end;i++)
   {
