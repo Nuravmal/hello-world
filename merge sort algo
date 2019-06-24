@@ -1,0 +1,67 @@
+#include <bits/stdc++.h >
+#include<iostream>
+using namespace std;
+
+// Function to Merge Arrays L and R into A. 
+// nl = number of elements in L
+// nr= number of elements in R. 
+
+void merge(int *A,int*L,int nl,int*R,int nr)
+{int i,j,k;
+  i=0;j=0;k=0;
+  //// i - to mark the index of left aubarray (L)
+	// j - to mark the index of right sub-raay (R)
+	// k - to mark the index of merged subarray (A)
+  while(i<nl&&j<nr)
+  {
+    if(L[i]<R[j])
+  A[k++] = L[i++];
+  else
+  A[k++] = R[j++];
+}
+while(i<nl)
+A[k++] = L[i++];
+
+while(j<nr)
+A[k++] = R[j++];
+
+
+}
+// Recursive function to sort an array of integers. 
+
+void mergesort(int *A,int n)
+{
+
+  if(n<2)return;       // base condition. If the array has less than two element, do nothing. 
+  int mid=n/2;
+  int*L=new int[mid];
+  int*R=new int[n-mid];
+
+  for(int i=0;i<mid;i++)
+  L[i]=A[i];                    // creating left subarray
+
+  for(int i=mid;i<n;i++)
+  R[i-mid]=A[i];                     // creating right subarray
+
+  mergesort(L,mid);      // sorting the left subarray
+
+  mergesort(R,n-mid);        // sorting the right subarray
+
+  merge(A,L,mid,R,n-mid);   // Merging L and R into A as sorted list.
+free(L);
+free(R);
+}
+
+
+int main()
+{
+int A[]={6,2,3,1,9,10,15,13,12,17};
+
+int n=sizeof(A)/sizeof(A[0]);
+
+mergesort(A,n);
+
+for(auto i:A)
+cout<<i;
+return 0;
+}
